@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<int> _nums = [];
   StreamController<List<int>> _streamController = StreamController();
-
+  String _currentSortAlgo = 'bubble';
   double _sampleSize = 350;
   bool isSorted = false;
   bool isSorting = false;
@@ -314,6 +314,61 @@ _heapSort() async {
         break;
     }
   }
+
+
+  _sort() async {
+    setState(() {
+      isSorting = true;
+    });
+
+    await _checkAndResetIfSorted();
+
+    Stopwatch stopwatch = new Stopwatch()..start();
+
+    switch (_currentSortAlgo) {
+      case "bubble":
+        await _bubbleSort();
+        break;
+      case "selection":
+        await _selectionSort();
+        break;
+      case "heap":
+        await _heapSort();
+        break;
+      case "insertion":
+        await _insertionSort();
+        break;
+      case "quick":
+        await _quickSort(0, _sampleSize.toInt() - 1);
+        break;
+      case "merge":
+        await _mergeSort(0, _sampleSize.toInt() - 1);
+        break;
+    }
+
+    stopwatch.stop();
+
+    _scaffoldKey.currentState.removeCurrentSnackBar();
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text(
+          "Sorting completed in ${stopwatch.elapsed.inMilliseconds} ms.",
+        ),
+      ),
+    );
+    setState(() {
+      isSorting = false;
+      isSorted = true;
+    });
+  }
+
+  @override
+  void dispose() {
+    _streamController.close();
+    super.dispose();
+  }
+
+
 
 
 
