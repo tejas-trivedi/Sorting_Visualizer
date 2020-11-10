@@ -69,5 +69,39 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  _insertionSort() async {
+    for (int i = 1; i < _nums.length; i++) {
+      int temp = _nums[i];
+      int j = i - 1;
+      while (j >= 0 && temp < _nums[j]) {
+        _nums[j + 1] = _nums[j];
+        --j;
+        await Future.delayed(_getDuration(), () {});
+
+        _streamController.add(_nums);
+      }
+      _nums[j + 1] = temp;
+      await Future.delayed(_getDuration(), () {});
+
+      _streamController.add(_nums);
+    }
+  }
+
+  _selectionSort() async {
+    for (int i = 0; i < _nums.length; i++) {
+      for (int j = i + 1; j < _nums.length; j++) {
+        if (_nums[i] > _nums[j]) {
+          int temp = _nums[j];
+          _nums[j] = _nums[i];
+          _nums[i] = temp;
+        }
+
+        await Future.delayed(_getDuration(), () {});
+
+        _streamController.add(_nums);
+      }
+    }
+  }
+
 
 }
