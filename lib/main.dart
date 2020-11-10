@@ -103,5 +103,159 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+_heapSort() async {
+    for (int i = _nums.length ~/ 2; i >= 0; i--) {
+      await heapify(_nums, _nums.length, i);
+      _streamController.add(_nums);
+    }
+    for (int i = _nums.length - 1; i >= 0; i--) {
+      int temp = _nums[0];
+      _nums[0] = _nums[i];
+      _nums[i] = temp;
+      await heapify(_nums, i, 0);
+      _streamController.add(_nums);
+    }
+  }
+
+  heapify(List<int> arr, int n, int i) async {
+    int largest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+
+    if (l < n && arr[l] > arr[largest]) largest = l;
+
+    if (r < n && arr[r] > arr[largest]) largest = r;
+
+    if (largest != i) {
+      int temp = _nums[i];
+      _nums[i] = _nums[largest];
+      _nums[largest] = temp;
+      heapify(arr, n, largest);
+    }
+    await Future.delayed(_getDuration());
+  }
+
+  func(int a, int b) {
+    if (a < b) {
+      return -1;
+    } else if (a > b) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  _quickSort(int leftIndex, int rightIndex) async {
+    Future<int> _partition(int left, int right) async {
+      int p = (left + (right - left) / 2).toInt();
+
+      var temp = _nums[p];
+      _nums[p] = _nums[right];
+      _nums[right] = temp;
+      await Future.delayed(_getDuration(), () {});
+
+      _streamController.add(_nums);
+
+      int cursor = left;
+
+      for (int i = left; i < right; i++) {
+        if (func(_nums[i], _nums[right]) <= 0) {
+          var temp = _nums[i];
+          _nums[i] = _nums[cursor];
+          _nums[cursor] = temp;
+          cursor++;
+
+          await Future.delayed(_getDuration(), () {});
+
+          _streamController.add(_nums);
+        }
+      }
+
+      temp = _nums[right];
+      _nums[right] = _nums[cursor];
+      _nums[cursor] = temp;
+
+      await Future.delayed(_getDuration(), () {});
+
+      _streamController.add(_nums);
+
+      return cursor;
+    }
+
+    if (leftIndex < rightIndex) {
+      int p = await _partition(leftIndex, rightIndex);
+
+      await _quickSort(leftIndex, p - 1);
+
+      await _quickSort(p + 1, rightIndex);
+    }
+  }
+
+
+  _mergeSort(int leftIndex, int rightIndex) async {
+    Future<void> merge(int leftIndex, int middleIndex, int rightIndex) async {
+      int leftSize = middleIndex - leftIndex + 1;
+      int rightSize = rightIndex - middleIndex;
+
+      List leftList = new List(leftSize);
+      List rightList = new List(rightSize);
+
+      for (int i = 0; i < leftSize; i++) leftList[i] = _nums[leftIndex + i];
+      for (int j = 0; j < rightSize; j++) rightList[j] = _nums[middleIndex + j + 1];
+
+      int i = 0, j = 0;
+      int k = leftIndex;
+
+      while (i < leftSize && j < rightSize) {
+        if (leftList[i] <= rightList[j]) {
+          _nums[k] = leftList[i];
+          i++;
+        } else {
+          _nums[k] = rightList[j];
+          j++;
+        }
+
+        await Future.delayed(_getDuration(), () {});
+        _streamController.add(_nums);
+
+        k++;
+      }
+
+      while (i < leftSize) {
+        _nums[k] = leftList[i];
+        i++;
+        k++;
+
+        await Future.delayed(_getDuration(), () {});
+        _streamController.add(_nums);
+      }
+
+      while (j < rightSize) {
+        _nums[k] = rightList[j];
+        j++;
+        k++;
+
+        await Future.delayed(_getDuration(), () {});
+        _streamController.add(_nums);
+      }
+    }
+
+    if (leftIndex < rightIndex) {
+      int middleIndex = (rightIndex + leftIndex) ~/ 2;
+
+      await _mergeSort(leftIndex, middleIndex);
+      await _mergeSort(middleIndex + 1, rightIndex);
+
+      await Future.delayed(_getDuration(), () {});
+
+      _streamController.add(_nums);
+
+      await merge(leftIndex, middleIndex, rightIndex);
+    }
+  }
+
+
+
+
 
 }
