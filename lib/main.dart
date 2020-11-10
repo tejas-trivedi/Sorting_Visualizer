@@ -254,6 +254,66 @@ _heapSort() async {
     }
   }
 
+// END OF ALGORITHMS:)
+
+  _reset() {
+    isSorted = false;
+    _nums = [];
+    for (int i = 0; i < _sampleSize; ++i) {
+      _nums.add(Random().nextInt(500));
+    }
+    _streamController.add(_nums);
+  }
+
+  _setSortAlgo(String type) {
+    setState(() {
+      _currentSortAlgo = type;
+    });
+  }
+
+  _checkAndResetIfSorted() async {
+    if (isSorted) {
+      _reset();
+      await Future.delayed(Duration(milliseconds: 200));
+    }
+  }
+
+  _changeSpeed() {
+    if (speed >= 3) {
+      speed = 0;
+      duration = 1500;
+    } else {
+      speed++;
+      duration = duration ~/ 2;
+    }
+
+    print(speed.toString() + " " + duration.toString());
+    setState(() {});
+  }
+
+
+  String _getTitle() {
+    switch (_currentSortAlgo) {
+      case "bubble":
+        return "Bubble Sort";
+        break;
+      case "heap":
+        return "Heap Sort";
+        break;
+      case "selection":
+        return "Selection Sort";
+        break;
+      case "insertion":
+        return "Insertion Sort";
+        break;
+      case "quick":
+        return "Quick Sort";
+        break;
+      case "merge":
+        return "Merge Sort";
+        break;
+    }
+  }
 
 
 
