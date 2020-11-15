@@ -57,7 +57,11 @@ class _TextState extends State<BubbleSort> {
           child: ListView(
             padding: EdgeInsets.symmetric(vertical: 50.0),
             children: <Widget>[
-              Divider(height: 0.0),
+              SizedBox(height: 15.0),
+              Text("PSEUDOCODES",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue[500])),
+                   Divider(height: 10.0),
               ListTile(
                 selected: true,
                 contentPadding:

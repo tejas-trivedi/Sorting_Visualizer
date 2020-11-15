@@ -10,6 +10,7 @@ import './algos/merge.dart';
 import './algos/quick.dart';
 import './algos/shell.dart';
 import './algos/heap.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -61,7 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
   _bubbleSort() async {
     for (int i = 0; i < _nums.length; ++i) {
       for (int j = 0; j < _nums.length - i - 1; ++j) {
-        if (_nums[j] < _nums[j + 1]) {    //>
+        if (_nums[j] < _nums[j + 1]) {
+          //>
           int temp = _nums[j];
           _nums[j] = _nums[j + 1];
           _nums[j + 1] = temp;
@@ -78,7 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
     for (int i = 1; i < _nums.length; i++) {
       int temp = _nums[i];
       int j = i - 1;
-      while (j >= 0 && temp > _nums[j]) {       // <
+      while (j >= 0 && temp > _nums[j]) {
+        // <
         _nums[j + 1] = _nums[j];
         //_nums[j] = _nums[j+1];
         --j;
@@ -128,9 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
     int l = 2 * i + 1;
     int r = 2 * i + 2;
 
-    if (l < n && arr[l] < arr[largest]) largest = l;    // >
+    if (l < n && arr[l] < arr[largest]) largest = l; // >
 
-    if (r < n && arr[r] < arr[largest]) largest = r;    // >
+    if (r < n && arr[r] < arr[largest]) largest = r; // >
 
     if (largest != i) {
       int temp = _nums[i];
@@ -142,9 +145,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   func(int a, int b) {
-    if (a > b) {      // <
+    if (a > b) {
+      // <
       return -1;
-    } else if (a < b) {       //>
+    } else if (a < b) {
+      //>
       return 1;
     } else {
       return 0;
@@ -476,78 +481,80 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ListView(
             padding: EdgeInsets.symmetric(vertical: 50.0),
             children: <Widget>[
+              SizedBox(height: 15.0),
+              Text("PSEUDOCODES",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.blue[500])),
+              Divider(height: 10.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 title: Text('Bubble Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          BubbleSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => BubbleSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 title: Text('Insertion Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          InsertionSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => InsertionSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 title: Text('Selection Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          SelectionSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => SelectionSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 title: Text('Merge Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          MergeSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => MergeSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 title: Text('Quick Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          QuickSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => QuickSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 title: Text('Shell Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          ShellSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => ShellSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
@@ -574,7 +581,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 return Row(
                   children: numbers.map((int num) {
-                    counter+=1;
+                    counter += 1;
                     return Container(
                       child: CustomPaint(
                         painter: BarPainter(
