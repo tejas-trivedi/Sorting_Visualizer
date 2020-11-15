@@ -487,13 +487,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.blue[500])),
-              Divider(height: 10.0),
+                      color: Colors.blue[900])),
+              //Divider(height: 100.0),
+              SizedBox(height: 50.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Bubble Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Bubble Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => BubbleSort()));
@@ -504,7 +510,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Insertion Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Insertion Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => InsertionSort()));
@@ -515,7 +526,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Selection Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Selection Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => SelectionSort()));
@@ -526,7 +542,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Merge Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Merge Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => MergeSort()));
@@ -537,7 +558,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Quick Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Quick Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => QuickSort()));
@@ -548,7 +574,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Shell Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Shell Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => ShellSort()));
@@ -559,7 +590,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Heap Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Heap Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => HeapSort()));

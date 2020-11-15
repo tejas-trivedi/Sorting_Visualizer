@@ -6,7 +6,6 @@ import './quick.dart';
 import './shell.dart';
 import './heap.dart';
 
-
 class SelectionSort extends StatefulWidget {
   @override
   _TextState createState() => _TextState();
@@ -60,13 +59,21 @@ class _TextState extends State<SelectionSort> {
               SizedBox(height: 15.0),
               Text("PSEUDOCODES",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.blue[500])),
-                   Divider(height: 10.0),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.blue[900])),
+              SizedBox(height: 50.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Bubble Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Bubble Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => BubbleSort()));
@@ -77,54 +84,76 @@ class _TextState extends State<SelectionSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Insertion Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Insertion Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          InsertionSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => InsertionSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Merge Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Merge Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          MergeSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => MergeSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Quick Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Quick Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          QuickSort()));
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => QuickSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Shell Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Shell Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => ShellSort()));
                 },
               ),
-              Divider(height: 5.0),
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Heap Sort', style: TextStyle(fontSize: 16)),
+                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                title: Text('Heap Sort',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => HeapSort()));
