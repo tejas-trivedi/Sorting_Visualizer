@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
+import './insertion.dart';
+import './selection.dart';
+import './merge.dart';
 
 class BubbleSort extends StatefulWidget {
   @override
@@ -51,17 +54,42 @@ class _TextState extends State<BubbleSort> {
           child: ListView(
             padding: EdgeInsets.symmetric(vertical: 50.0),
             children: <Widget>[
+              Divider(height: 0.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Bubble Sort', style: TextStyle(fontSize: 16)),
+                title: Text('Insertion Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => BubbleSort()));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          InsertionSort()));
                 },
               ),
-              Divider(height: 0.0),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Selection Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          SelectionSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Merge Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          MergeSort()));
+                },
+              ),
             ],
           ),
         ),

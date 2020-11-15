@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import './algos/bubble.dart';
 import './algos/insertion.dart';
 import './algos/selection.dart';
+import './algos/merge.dart';
 
 void main() => runApp(MyApp());
 
@@ -505,6 +506,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                       builder: (context) =>
                           SelectionSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Merge Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          MergeSort()));
                 },
               ),
             ],
