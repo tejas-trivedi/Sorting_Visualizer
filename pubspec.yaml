@@ -49,6 +49,9 @@ flutter:
     - assets/images/insertion.png
     - assets/images/selection.png
     - assets/images/merge.png
+    - assets/images/quick.png
+    - assets/images/shell.png
+    - assets/images/heap.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

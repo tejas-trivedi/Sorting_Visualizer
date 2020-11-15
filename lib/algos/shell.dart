@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:sorting_visualizer/algos/bubble.dart';
-import 'package:sorting_visualizer/algos/merge.dart';
+import './insertion.dart';
+import './merge.dart';
 import './selection.dart';
 import './quick.dart';
-import './shell.dart';
 import './heap.dart';
 
-class InsertionSort extends StatefulWidget {
+class ShellSort extends StatefulWidget {
   @override
   _TextState createState() => _TextState();
 }
 
-class _TextState extends State<InsertionSort> {
+class _TextState extends State<ShellSort> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,7 @@ class _TextState extends State<InsertionSort> {
         backgroundColor: Colors.blue[900],
         centerTitle: true,
         elevation: 10.0,
-        title: Text("Insertion Sort"),
+        title: Text("Shell Sort"),
       ),
       body: Column(
         //child: Column(
@@ -46,7 +46,7 @@ class _TextState extends State<InsertionSort> {
                 width: 10,
               ),
             ),
-            child: Image.asset("assets/images/insertion.png"),
+            child: Image.asset("assets/images/shell.png"),
           ),
         ],
       ),
@@ -66,6 +66,30 @@ class _TextState extends State<InsertionSort> {
                       MaterialPageRoute(builder: (context) => BubbleSort()));
                 },
               ),
+              Divider(height: 0.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Insertion Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          InsertionSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Merge Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          MergeSort()));
+                },
+              ),
               Divider(height: 5.0),
               ListTile(
                 selected: true,
@@ -82,33 +106,10 @@ class _TextState extends State<InsertionSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Merge Sort', style: TextStyle(fontSize: 16)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => MergeSort()));
-                },
-              ),
-              Divider(height: 5.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
                 title: Text('Quick Sort', style: TextStyle(fontSize: 16)),
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) =>
-                          QuickSort()));
-                },
-              ),
-              Divider(height: 5.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                title: Text('Shell Sort', style: TextStyle(fontSize: 16)),
-                onTap: () {
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => ShellSort()));
+                      MaterialPageRoute(builder: (context) => QuickSort()));
                 },
               ),
               Divider(height: 5.0),

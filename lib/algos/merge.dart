@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sorting_visualizer/algos/bubble.dart';
 import './insertion.dart';
 import './selection.dart';
+import './quick.dart';
+import './shell.dart';
+import './heap.dart';
 
 class MergeSort extends StatefulWidget {
   @override
@@ -85,6 +88,40 @@ class _TextState extends State<MergeSort> {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                       builder: (context) =>
                           SelectionSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Quick Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          QuickSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Shell Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => ShellSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Heap Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => HeapSort()));
                 },
               ),
             ],

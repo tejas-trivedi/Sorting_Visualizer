@@ -2,11 +2,14 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:sorting_visualizer/algos/shell.dart';
 import './algos/bubble.dart';
 import './algos/insertion.dart';
 import './algos/selection.dart';
 import './algos/merge.dart';
-
+import './algos/quick.dart';
+import './algos/shell.dart';
+import './algos/heap.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -518,6 +521,41 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                       builder: (context) =>
                           MergeSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Quick Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          QuickSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Shell Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) =>
+                          ShellSort()));
+                },
+              ),
+              Divider(height: 5.0),
+              ListTile(
+                selected: true,
+                contentPadding:
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                title: Text('Heap Sort', style: TextStyle(fontSize: 16)),
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => HeapSort()));
                 },
               ),
             ],
