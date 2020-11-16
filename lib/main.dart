@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Sorting_Visualizer',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        //backgroundColor: Colors.black
       ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
@@ -281,6 +282,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 // END OF ALGORITHMS:)
 
+  Future<bool> _onBackPressed() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyHomePage()),
+    );
+  }
+
   _reset() {
     isSorted = false;
     _nums = [];
@@ -399,276 +407,282 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text(_getTitle()),
-        backgroundColor: Colors.blue[900],
-        actions: <Widget>[
-          PopupMenuButton<String>(
-            initialValue: _currentSortAlgo,
-            itemBuilder: (ctx) {
-              return [
-                PopupMenuItem(
-                  value: 'bubble',
-                  child: Text("Bubble Sort"),
-                  textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 15),
+    return WillPopScope(
+      onWillPop: _onBackPressed,
+      child: new Scaffold(
+        key: _scaffoldKey,
+        backgroundColor: Colors.grey[100],
+        appBar: AppBar(
+          title: Text(_getTitle()),
+          backgroundColor: Colors.black,
+          actions: <Widget>[
+            PopupMenuButton<String>(
+              color: Colors.black87,
+              elevation: 100,
+              initialValue: _currentSortAlgo,
+              itemBuilder: (ctx) {
+                return [
+                  PopupMenuItem(
+                    value: 'bubble',
+                    child: Text("Bubble Sort"),
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400],
+                        fontSize: 15),
+                  ),
+                  PopupMenuItem(
+                    value: 'selection',
+                    child: Text("Selection Sort"),
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400],
+                        fontSize: 15),
+                  ),
+                  PopupMenuItem(
+                    value: 'insertion',
+                    child: Text("Insertion Sort"),
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400],
+                        fontSize: 15),
+                  ),
+                  PopupMenuItem(
+                    value: 'merge',
+                    child: Text("Merge Sort"),
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400],
+                        fontSize: 15),
+                  ),
+                  PopupMenuItem(
+                    value: 'quick',
+                    child: Text("Quick Sort"),
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400],
+                        fontSize: 15),
+                  ),
+                  PopupMenuItem(
+                    value: 'heap',
+                    child: Text("Heap Sort"),
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400],
+                        fontSize: 15),
+                  ),
+                  PopupMenuItem(
+                    value: 'shell',
+                    child: Text("Shell Sort"),
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red[400],
+                        fontSize: 15),
+                  ),
+                ];
+              },
+              onSelected: (String value) {
+                _reset();
+                _setSortAlgo(value);
+              },
+            ),
+          ],
+        ),
+        drawer: Drawer(
+          child: Container(
+            color: Colors.black87,
+            child: ListView(
+              padding: EdgeInsets.symmetric(vertical: 50.0),
+              children: <Widget>[
+                SizedBox(height: 15.0),
+                Text("PSEUDOCODES",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: Colors.red[900])),
+                //Divider(height: 100.0),
+                SizedBox(height: 50.0),
+                ListTile(
+                  selected: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  title: Text('Bubble Sort',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red[400],
+                          fontWeight: FontWeight.bold)),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => BubbleSort()));
+                  },
                 ),
-                PopupMenuItem(
-                  value: 'selection',
-                  child: Text("Selection Sort"),
-                  textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 15),
+                Divider(height: 0.0),
+                ListTile(
+                  selected: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  title: Text('Insertion Sort',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red[400],
+                          fontWeight: FontWeight.bold)),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => InsertionSort()));
+                  },
                 ),
-                PopupMenuItem(
-                  value: 'insertion',
-                  child: Text("Insertion Sort"),
-                  textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 15),
+                Divider(height: 0.0),
+                ListTile(
+                  selected: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  title: Text('Selection Sort',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red[400],
+                          fontWeight: FontWeight.bold)),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => SelectionSort()));
+                  },
                 ),
-                PopupMenuItem(
-                  value: 'merge',
-                  child: Text("Merge Sort"),
-                  textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 15),
+                Divider(height: 0.0),
+                ListTile(
+                  selected: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  title: Text('Merge Sort',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red[400],
+                          fontWeight: FontWeight.bold)),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => MergeSort()));
+                  },
                 ),
-                PopupMenuItem(
-                  value: 'quick',
-                  child: Text("Quick Sort"),
-                  textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 15),
+                Divider(height: 0.0),
+                ListTile(
+                  selected: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  title: Text('Quick Sort',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red[400],
+                          fontWeight: FontWeight.bold)),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => QuickSort()));
+                  },
                 ),
-                PopupMenuItem(
-                  value: 'heap',
-                  child: Text("Heap Sort"),
-                  textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 15),
+                Divider(height: 0.0),
+                ListTile(
+                  selected: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  title: Text('Shell Sort',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red[400],
+                          fontWeight: FontWeight.bold)),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => ShellSort()));
+                  },
                 ),
-                PopupMenuItem(
-                  value: 'shell',
-                  child: Text("Shell Sort"),
-                  textStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                      fontSize: 15),
+                Divider(height: 0.0),
+                ListTile(
+                  selected: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  title: Text('Heap Sort',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.red[400],
+                          fontWeight: FontWeight.bold)),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => HeapSort()));
+                  },
                 ),
-              ];
-            },
-            onSelected: (String value) {
-              _reset();
-              _setSortAlgo(value);
-            },
+              ],
+            ),
           ),
-        ],
-      ),
-      drawer: Drawer(
-        child: Container(
-          color: Colors.white,
-          child: ListView(
-            padding: EdgeInsets.symmetric(vertical: 50.0),
+        ),
+        body: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.only(top: 0.0),
+            child: StreamBuilder<Object>(
+                initialData: _nums,
+                stream: _streamController.stream,
+                builder: (context, snapshot) {
+                  List<int> numbers = snapshot.data;
+                  int counter = 0;
+
+                  return Row(
+                    children: numbers.map((int num) {
+                      counter += 1;
+                      return Container(
+                        child: CustomPaint(
+                          painter: BarPainter(
+                              index: counter,
+                              value: num,
+                              width: MediaQuery.of(context).size.width /
+                                  _sampleSize),
+                        ),
+                      );
+                    }).toList(),
+                  );
+                }),
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
             children: <Widget>[
-              SizedBox(height: 15.0),
-              Text("PSEUDOCODES",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.blue[900])),
-              //Divider(height: 100.0),
-              SizedBox(height: 50.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
-                title: Text('Bubble Sort',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => BubbleSort()));
-                },
-              ),
-              Divider(height: 0.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
-                title: Text('Insertion Sort',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => InsertionSort()));
-                },
-              ),
-              Divider(height: 0.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
-                title: Text('Selection Sort',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => SelectionSort()));
-                },
-              ),
-              Divider(height: 0.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
-                title: Text('Merge Sort',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => MergeSort()));
-                },
-              ),
-              Divider(height: 0.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
-                title: Text('Quick Sort',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => QuickSort()));
-                },
-              ),
-              Divider(height: 0.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
-                title: Text('Shell Sort',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => ShellSort()));
-                },
-              ),
-              Divider(height: 0.0),
-              ListTile(
-                selected: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
-                title: Text('Heap Sort',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.bold)),
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => HeapSort()));
-                },
-              ),
+              Expanded(
+                  child: FlatButton(
+                      color: Colors.black26,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        side: BorderSide(color: Colors.black87),
+                      ),
+                      onPressed: isSorting
+                          ? null
+                          : () {
+                              _reset();
+                              _setSortAlgo(_currentSortAlgo);
+                            },
+                      child: Text("RESET"))),
+              Expanded(
+                  child: FlatButton(
+                      color: Colors.black26,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.black87)),
+                      onPressed: isSorting ? null : _sort,
+                      child: Text("SORT"))),
+              Expanded(
+                  child: FlatButton(
+                      color: Colors.black26,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.black87)),
+                      onPressed: isSorting ? null : _changeSpeed,
+                      child: Text(
+                        "${speed + 1}x",
+                        style: TextStyle(fontSize: 16),
+                      ))),
             ],
           ),
-        ),
-      ),
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.only(top: 0.0),
-          child: StreamBuilder<Object>(
-              initialData: _nums,
-              stream: _streamController.stream,
-              builder: (context, snapshot) {
-                List<int> numbers = snapshot.data;
-                int counter = 0;
-
-                return Row(
-                  children: numbers.map((int num) {
-                    counter += 1;
-                    return Container(
-                      child: CustomPaint(
-                        painter: BarPainter(
-                            index: counter,
-                            value: num,
-                            width: MediaQuery.of(context).size.width /
-                                _sampleSize),
-                      ),
-                    );
-                  }).toList(),
-                );
-              }),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: <Widget>[
-            Expanded(
-                child: FlatButton(
-                    color: Colors.black26,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      side: BorderSide(color: Colors.black87),
-                    ),
-                    onPressed: isSorting
-                        ? null
-                        : () {
-                            _reset();
-                            _setSortAlgo(_currentSortAlgo);
-                          },
-                    child: Text("RESET"))),
-            Expanded(
-                child: FlatButton(
-                    color: Colors.black26,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        side: BorderSide(color: Colors.black87)),
-                    onPressed: isSorting ? null : _sort,
-                    child: Text("SORT"))),
-            Expanded(
-                child: FlatButton(
-                    color: Colors.black26,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        side: BorderSide(color: Colors.black87)),
-                    onPressed: isSorting ? null : _changeSpeed,
-                    child: Text(
-                      "${speed + 1}x",
-                      style: TextStyle(fontSize: 16),
-                    ))),
-          ],
         ),
       ),
     );
@@ -686,25 +700,25 @@ class BarPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
     if (this.value < 500 * .10) {
-      paint.color = Colors.lightBlue[50]; //Color(0xFFDEEDCF);
+      paint.color = Colors.red[50]; //Color(0xFFDEEDCF);
     } else if (this.value < 500 * .20) {
-      paint.color = Colors.lightBlue[100];
+      paint.color = Colors.red[100];
     } else if (this.value < 500 * .30) {
-      paint.color = Colors.lightBlue[200];
+      paint.color = Colors.red[200];
     } else if (this.value < 500 * .40) {
-      paint.color = Colors.lightBlue[300];
+      paint.color = Colors.red[300];
     } else if (this.value < 500 * .50) {
-      paint.color = Colors.lightBlue[400];
+      paint.color = Colors.red[400];
     } else if (this.value < 500 * .60) {
-      paint.color = Colors.lightBlue[500];
+      paint.color = Colors.red[500];
     } else if (this.value < 500 * .70) {
-      paint.color = Colors.lightBlue[600];
+      paint.color = Colors.red[600];
     } else if (this.value < 500 * .80) {
-      paint.color = Colors.lightBlue[700];
+      paint.color = Colors.red[700];
     } else if (this.value < 500 * .90) {
-      paint.color = Colors.lightBlue[800];
+      paint.color = Colors.red[800];
     } else {
-      paint.color = Colors.lightBlue[900];
+      paint.color = Colors.red[900];
     }
 
     paint.strokeWidth = width;

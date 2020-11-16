@@ -18,7 +18,7 @@ class _TextState extends State<HeapSort> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: Colors.black,
         centerTitle: true,
         elevation: 10.0,
         title: Text("Heap Sort"),
@@ -54,7 +54,7 @@ class _TextState extends State<HeapSort> {
       ),
       drawer: Drawer(
         child: Container(
-          color: Colors.white,
+          color: Colors.black87,
           child: ListView(
             padding: EdgeInsets.symmetric(vertical: 50.0),
             children: <Widget>[
@@ -62,19 +62,20 @@ class _TextState extends State<HeapSort> {
               Text("PSEUDOCODES",
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                    decoration: TextDecoration.underline,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.blue[900])),
+                      color: Colors.red[900])),
               SizedBox(height: 50.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                leading: Icon(Icons.assessment, color: Colors.red[900]),
                 title: Text('Bubble Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey[700],
+                        color: Colors.red[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -86,11 +87,11 @@ class _TextState extends State<HeapSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                leading: Icon(Icons.assessment, color: Colors.red[900]),
                 title: Text('Insertion Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey[700],
+                        color: Colors.red[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -102,11 +103,11 @@ class _TextState extends State<HeapSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                leading: Icon(Icons.assessment, color: Colors.red[900]),
                 title: Text('Selection Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey[700],
+                        color: Colors.red[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -118,11 +119,11 @@ class _TextState extends State<HeapSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                leading: Icon(Icons.assessment, color: Colors.red[900]),
                 title: Text('Merge Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey[700],
+                        color: Colors.red[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -134,11 +135,11 @@ class _TextState extends State<HeapSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                leading: Icon(Icons.assessment, color: Colors.red[900]),
                 title: Text('Quick Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey[700],
+                        color: Colors.red[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -150,11 +151,11 @@ class _TextState extends State<HeapSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.blue[900]),
+                leading: Icon(Icons.assessment, color: Colors.red[900]),
                 title: Text('Shell Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey[700],
+                        color: Colors.red[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
