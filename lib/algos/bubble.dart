@@ -20,7 +20,10 @@ class _TextState extends State<BubbleSort> {
         backgroundColor: Colors.black,
         centerTitle: true,
         elevation: 10.0,
-        title: Text("Bubble Sort"),
+        title: Text("Bubble Sort",
+        style: TextStyle(
+          fontWeight: FontWeight.bold
+        ),),
       ),
       backgroundColor: Colors.grey[900],
       body: Column(
@@ -44,7 +47,7 @@ class _TextState extends State<BubbleSort> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: Colors.red[500],
+                color: Colors.cyan[500],
                 width: 10,
               ),
             ),
@@ -65,17 +68,17 @@ class _TextState extends State<BubbleSort> {
                     decoration: TextDecoration.underline,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.red[900])),
+                      color: Colors.cyan[700])),
               SizedBox(height: 50.0),
               ListTile(
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.red[900]),
+                leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                 title: Text('Insertion Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -87,11 +90,11 @@ class _TextState extends State<BubbleSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.red[900]),
+                leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                 title: Text('Selection Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -103,11 +106,11 @@ class _TextState extends State<BubbleSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.red[900]),
+                leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                 title: Text('Merge Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -119,11 +122,11 @@ class _TextState extends State<BubbleSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.red[900]),
+                leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                 title: Text('Quick Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -135,11 +138,11 @@ class _TextState extends State<BubbleSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.red[900]),
+                leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                 title: Text('Shell Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(
@@ -151,11 +154,11 @@ class _TextState extends State<BubbleSort> {
                 selected: true,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                leading: Icon(Icons.assessment, color: Colors.red[900]),
+                leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                 title: Text('Heap Sort',
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontWeight: FontWeight.bold)),
                 onTap: () {
                   Navigator.of(context).pushReplacement(

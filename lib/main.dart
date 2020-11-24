@@ -77,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+
   _insertionSort() async {
     for (int i = 1; i < _nums.length; i++) {
       int temp = _nums[i];
@@ -389,7 +390,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _scaffoldKey.currentState.showSnackBar(
       SnackBar(
         content: Text(
-          "Sorting completed in ${stopwatch.elapsed.inMilliseconds} ms.",
+          "Sorted in ${stopwatch.elapsed.inMilliseconds} ms.",
         ),
       ),
     );
@@ -427,7 +428,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("Bubble Sort"),
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontSize: 15),
                   ),
                   PopupMenuItem(
@@ -435,7 +436,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("Selection Sort"),
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontSize: 15),
                   ),
                   PopupMenuItem(
@@ -443,7 +444,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("Insertion Sort"),
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontSize: 15),
                   ),
                   PopupMenuItem(
@@ -451,7 +452,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("Merge Sort"),
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontSize: 15),
                   ),
                   PopupMenuItem(
@@ -459,7 +460,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("Quick Sort"),
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontSize: 15),
                   ),
                   PopupMenuItem(
@@ -467,7 +468,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("Heap Sort"),
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontSize: 15),
                   ),
                   PopupMenuItem(
@@ -475,7 +476,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("Shell Sort"),
                     textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[400],
+                        color: Colors.cyan[400],
                         fontSize: 15),
                   ),
                 ];
@@ -500,18 +501,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         decoration: TextDecoration.underline,
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
-                        color: Colors.red[900])),
+                        color: Colors.cyan[700])),
                 //Divider(height: 100.0),
                 SizedBox(height: 50.0),
                 ListTile(
                   selected: true,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                   title: Text('Bubble Sort',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.red[400],
+                          color: Colors.cyan[400],
                           fontWeight: FontWeight.bold)),
                   onTap: () {
                     Navigator.of(context).pushReplacement(
@@ -523,11 +524,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   selected: true,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                   title: Text('Insertion Sort',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.red[400],
+                          color: Colors.cyan[400],
                           fontWeight: FontWeight.bold)),
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -539,11 +540,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   selected: true,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                   title: Text('Selection Sort',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.red[400],
+                          color: Colors.cyan[400],
                           fontWeight: FontWeight.bold)),
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -555,11 +556,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   selected: true,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                   title: Text('Merge Sort',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.red[400],
+                          color: Colors.cyan[400],
                           fontWeight: FontWeight.bold)),
                   onTap: () {
                     Navigator.of(context).pushReplacement(
@@ -571,11 +572,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   selected: true,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                   title: Text('Quick Sort',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.red[400],
+                          color: Colors.cyan[400],
                           fontWeight: FontWeight.bold)),
                   onTap: () {
                     Navigator.of(context).pushReplacement(
@@ -587,11 +588,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   selected: true,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                   title: Text('Shell Sort',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.red[400],
+                          color: Colors.cyan[400],
                           fontWeight: FontWeight.bold)),
                   onTap: () {
                     Navigator.of(context).pushReplacement(
@@ -603,11 +604,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   selected: true,
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                  leading: Icon(Icons.assessment, color: Colors.red[900]),
+                  leading: Icon(Icons.assessment, color: Colors.cyan[700]),
                   title: Text('Heap Sort',
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.red[400],
+                          color: Colors.cyan[400],
                           fontWeight: FontWeight.bold)),
                   onTap: () {
                     Navigator.of(context).pushReplacement(
@@ -620,7 +621,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: SafeArea(
           child: Container(
-            padding: const EdgeInsets.only(top: 0.0),
+            padding: const EdgeInsets.only(top: 90.0),
             child: StreamBuilder<Object>(
                 initialData: _nums,
                 stream: _streamController.stream,
@@ -699,34 +700,40 @@ class BarPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
+    //paint.color = Colors.cyan[400];
     if (this.value < 500 * .10) {
-      paint.color = Colors.red[50]; //Color(0xFFDEEDCF);
+      paint.color = Colors.cyan[900]; //Color(0xFFDEEDCF);
     } else if (this.value < 500 * .20) {
-      paint.color = Colors.red[100];
+      paint.color = Colors.cyan[800];
     } else if (this.value < 500 * .30) {
-      paint.color = Colors.red[200];
+      paint.color = Colors.cyan[700];
     } else if (this.value < 500 * .40) {
-      paint.color = Colors.red[300];
+      paint.color = Colors.cyan[600];
     } else if (this.value < 500 * .50) {
-      paint.color = Colors.red[400];
+      paint.color = Colors.cyan[500];
     } else if (this.value < 500 * .60) {
-      paint.color = Colors.red[500];
+      paint.color = Colors.cyan[400];
     } else if (this.value < 500 * .70) {
-      paint.color = Colors.red[600];
+      paint.color = Colors.cyan[300];
     } else if (this.value < 500 * .80) {
-      paint.color = Colors.red[700];
+      paint.color = Colors.cyan[200];
     } else if (this.value < 500 * .90) {
-      paint.color = Colors.red[800];
+      paint.color = Colors.cyan[100];
     } else {
-      paint.color = Colors.red[900];
+      paint.color = Colors.cyan[50];
     }
 
     paint.strokeWidth = width;
     paint.strokeCap = StrokeCap.round;
 
-    canvas.drawLine(Offset(index * this.width, 2),
-        Offset(index * this.width, this.value.ceilToDouble()), paint);
+    //canvas.drawLine(Offset(index * this.width, 600),
+    //    Offset(index * this.width, this.value.ceilToDouble()),  paint);
+        //Offset(, paint);
     //canvas.drawLine(p1, p2, paint)
+    canvas.drawLine(
+      Offset(index * this.width, this.value.ceilToDouble()),
+      Offset(index * this.width, 600), paint
+    );
   }
 
   @override
