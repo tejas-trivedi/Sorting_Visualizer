@@ -77,7 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-
   _insertionSort() async {
     for (int i = 1; i < _nums.length; i++) {
       int temp = _nums[i];
@@ -358,8 +357,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     await _checkAndResetIfSorted();
 
-    Stopwatch stopwatch = new Stopwatch()..start();
-
     switch (_currentSortAlgo) {
       case "bubble":
         await _bubbleSort();
@@ -384,16 +381,6 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
     }
 
-    stopwatch.stop();
-
-    _scaffoldKey.currentState.removeCurrentSnackBar();
-    _scaffoldKey.currentState.showSnackBar(
-      SnackBar(
-        content: Text(
-          "Sorted in ${stopwatch.elapsed.inMilliseconds} ms.",
-        ),
-      ),
-    );
     setState(() {
       isSorting = false;
       isSorted = true;
@@ -621,7 +608,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: SafeArea(
           child: Container(
-            padding: const EdgeInsets.only(top: 90.0),
+            padding: const EdgeInsets.only(top: 95.0),
             child: StreamBuilder<Object>(
                 initialData: _nums,
                 stream: _streamController.stream,
@@ -653,16 +640,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: FlatButton(
                       color: Colors.black26,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        side: BorderSide(color: Colors.black87),
-                      ),
-                      onPressed: isSorting
-                          ? null
-                          : () {
-                              _reset();
-                              _setSortAlgo(_currentSortAlgo);
-                            },
-                      child: Text("RESET"))),
+                          borderRadius: BorderRadius.circular(10.0),
+                          side: BorderSide(color: Colors.black87)),
+                      onPressed: isSorting ? null : _changeSpeed,
+                      child: Text(
+                        "${speed + 1}x",
+                        style: TextStyle(fontSize: 16),
+                      ))),
               Expanded(
                   child: FlatButton(
                       color: Colors.black26,
@@ -675,13 +659,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: FlatButton(
                       color: Colors.black26,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Colors.black87)),
-                      onPressed: isSorting ? null : _changeSpeed,
-                      child: Text(
-                        "${speed + 1}x",
-                        style: TextStyle(fontSize: 16),
-                      ))),
+                        borderRadius: BorderRadius.circular(10.0),
+                        side: BorderSide(color: Colors.black87),
+                      ),
+                      onPressed: isSorting
+                          ? null
+                          : () {
+                              _reset();
+                              _setSortAlgo(_currentSortAlgo);
+                            },
+                      child: Text("RESET"))),
             ],
           ),
         ),
@@ -726,14 +713,8 @@ class BarPainter extends CustomPainter {
     paint.strokeWidth = width;
     paint.strokeCap = StrokeCap.round;
 
-    //canvas.drawLine(Offset(index * this.width, 600),
-    //    Offset(index * this.width, this.value.ceilToDouble()),  paint);
-        //Offset(, paint);
-    //canvas.drawLine(p1, p2, paint)
-    canvas.drawLine(
-      Offset(index * this.width, this.value.ceilToDouble()),
-      Offset(index * this.width, 600), paint
-    );
+    canvas.drawLine(Offset(index * this.width, this.value.ceilToDouble()),
+        Offset(index * this.width, 600), paint);
   }
 
   @override
