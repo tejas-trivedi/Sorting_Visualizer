@@ -18,9 +18,10 @@
 ![merge](https://user-images.githubusercontent.com/57986361/100215434-021b9180-2f37-11eb-8fa9-3e3a52afe58a.gif)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![quick](https://user-images.githubusercontent.com/57986361/100215713-5de61a80-2f37-11eb-87a7-117e8594406e.gif)  
-&nbsp;&nbsp;&nbsp;&nbsp;
+</br></br>
+
 ![heap](https://user-images.githubusercontent.com/57986361/100214572-127f3c80-2f36-11eb-9482-56856991d3b4.gif) 
-</br>
+&nbsp;&nbsp;&nbsp;&nbsp;
 ![shell](https://user-images.githubusercontent.com/57986361/100215924-a9002d80-2f37-11eb-9106-6e7c54379d95.gif)
 
 
