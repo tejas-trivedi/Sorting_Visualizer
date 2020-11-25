@@ -298,20 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _streamController.add(_nums);
   }
 
-  _setSortAlgo(String type) {
-    setState(() {
-      _currentSortAlgo = type;
-    });
-  }
-
-  _checkAndResetIfSorted() async {
-    if (isSorted) {
-      _reset();
-      await Future.delayed(Duration(milliseconds: 200));
-    }
-  }
-
-  _changeSpeed() {
+    _changeSpeed() {
     if (speed >= 3) {
       speed = 0;
       duration = 1500;
@@ -323,6 +310,20 @@ class _MyHomePageState extends State<MyHomePage> {
     print(speed.toString() + " " + duration.toString());
     setState(() {});
   }
+
+    _checkAndResetIfSorted() async {
+    if (isSorted) {
+      _reset();
+      await Future.delayed(Duration(milliseconds: 200));
+    }
+  }
+
+  _setSortAlgo(String type) {
+    setState(() {
+      _currentSortAlgo = type;
+    });
+  }
+
 
   String _getTitle() {
     switch (_currentSortAlgo) {
@@ -608,7 +609,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: SafeArea(
           child: Container(
-            padding: const EdgeInsets.only(top: 95.0),
+            padding: const EdgeInsets.only(top: 100.0),
             child: StreamBuilder<Object>(
                 initialData: _nums,
                 stream: _streamController.stream,
@@ -621,7 +622,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       counter += 1;
                       return Container(
                         child: CustomPaint(
-                          painter: BarPainter(
+                          painter: StrokesPaint(
                               index: counter,
                               value: num,
                               width: MediaQuery.of(context).size.width /
@@ -668,7 +669,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               _reset();
                               _setSortAlgo(_currentSortAlgo);
                             },
-                      child: Text("RESET"))),
+                      child: Text("SHUFFLE"))),
             ],
           ),
         ),
@@ -677,19 +678,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class BarPainter extends CustomPainter {
+class StrokesPaint extends CustomPainter {
   final double width;
   final int value;
   final int index;
 
-  BarPainter({this.width, this.value, this.index});
+  StrokesPaint({this.width, this.value, this.index});
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint();
     //paint.color = Colors.cyan[400];
     if (this.value < 500 * .10) {
-      paint.color = Colors.cyan[900]; //Color(0xFFDEEDCF);
+      paint.color = Colors.cyan[900]; 
     } else if (this.value < 500 * .20) {
       paint.color = Colors.cyan[800];
     } else if (this.value < 500 * .30) {
