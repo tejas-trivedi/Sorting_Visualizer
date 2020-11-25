@@ -1,4 +1,7 @@
 # Sorting_Visualizer
+</br>
+This is an application to visualize sorting algorithms like Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, Heap Sort and Shell Sort.</br>
+Along with visualizing these algos, Pseudocodes of all 7 algorithms are also displayed.
 </br></br>
 
 ## Screens
